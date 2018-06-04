@@ -1,0 +1,1 @@
+# simpler-redux-skeleton-project
