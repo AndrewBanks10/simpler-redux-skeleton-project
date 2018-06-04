@@ -2,7 +2,7 @@ import { generalReducer, stateAccessors } from 'simpler-redux'
 
 export const reducerKey = 'mVCNormal'
 
-// If you are not using shared stat management with this module then you can use
+// If you are not using shared state management with this module then you can use
 // setState and getState. To use, setState(objectToMerge) and let c = getState().c.
 let setState
 let getState
