@@ -6,12 +6,14 @@ export const reducerKey = 'mVCNormal'
 // setState and getState. To use, setState(objectToMerge) and let c = getState().c.
 let setState
 let getState
-export const storeIsDefinedCallback = store => {
-  ({ setState, getState } = stateAccessors(store, reducerKey))
-}
+let reducerState
+export const storeIsDefinedCallback = store =>
+  ({ setState, getState, reducerState } = stateAccessors(store, reducerKey))
 
 // TODO: Define your initial state
 const initialState = {
+  // Example
+  counter: 0
 }
 
 // TODO: Define your selector functions for your UI state props keys.
@@ -21,8 +23,9 @@ export const selectors = {
 
 // TODO: Define your service functions for your UI using getState and setState
 export const serviceFunctions = {
-  // Example
-  increment: () => setState({ counter: getState().counter + 1 }, 'increment')
+  // Examples
+  increment: () => setState({ counter: getState().counter + 1 }, 'increment'),
+  decrement: () => reducerState.counter--
 }
 
 export const reducer = generalReducer(reducerKey, initialState)

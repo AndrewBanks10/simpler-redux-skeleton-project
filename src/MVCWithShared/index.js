@@ -1,5 +1,2 @@
-
-import Container from './controller'
-import { reducerKey, reducer } from './model'
-export default Container
-export { reducerKey, reducer }
+export { default } from './controller'
+export { reducerKey, reducer } from './model'
