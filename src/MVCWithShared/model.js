@@ -1,9 +1,7 @@
-import { generalReducer } from 'simpler-redux'
-
 export const reducerKey = 'mVCWithShared'
 
 // TODO: Define your initial state
-const initialState = {
+export const initialState = {
 }
 
 // TODO: Define your selector functions for your UI state props keys.
@@ -16,5 +14,3 @@ export const selectors = {
 export const serviceFunctions = {
 }
 
-export const reducer = generalReducer(reducerKey, initialState)
-// TODO: Add the reducer for this file to reducers.js using reducerKey and reducer.
