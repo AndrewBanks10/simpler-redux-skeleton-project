@@ -22,10 +22,13 @@
     let setState, reducerState
     export const storeIsDefinedCallback = store =>
       ({setState, reducerState} = stateAccessors(store, reducerKey, initialState))
+
+  Note: If you present any redux state in the react component then you must define and export either
+    a selectors object or an initialUIState object. Otherwise, you will not have any state in
+    the props of the react component.
 */
 
-import { generalReducer, stateAccessors } from 'simpler-redux'
-
+// Define your reducer key. This is rquired.
 export const reducerKey = 'mVCNormal'
 
 // If you are not using shared state management with this module then you can use
@@ -33,7 +36,7 @@ export const reducerKey = 'mVCNormal'
 let setState
 let getState
 let reducerState
-export const storeIsDefinedCallback = store =>
+export const storeIsDefinedCallback = (store, stateAccessors) =>
   ({ setState, getState, reducerState } = stateAccessors(store, reducerKey))
 
 // TODO: Define your UI initial state. Do not export this if you define a selectors object.
@@ -42,7 +45,7 @@ export const uiInitialState = {
   counter: 0
 }
 
-// TODO: Define your initial state
+// TODO: Define your initial state. This is required.
 export const initialState = {
   ...uiInitialState
 }
@@ -61,6 +64,3 @@ export const serviceFunctions = {
   increment: () => setState({ counter: getState().counter + 1 }, 'increment'),
   decrement: () => reducerState.counter--
 }
-
-export const reducer = generalReducer(reducerKey, initialState)
-// TODO: Add the reducer for this file to reducers.js using reducerKey and reducer.
