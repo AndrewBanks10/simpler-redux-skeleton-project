@@ -31,21 +31,22 @@
 // Define your reducer key. This is rquired.
 export const reducerKey = 'mVCNormal'
 
-// If you are not using shared state management with this module then you can use
-// setState and getState. To use, setState(objectToMerge) and let c = getState().c.
-let setState
-let getState
-let reducerState
-export const storeIsDefinedCallback = (store, stateAccessors) =>
-  ({ setState, getState, reducerState } = stateAccessors(store, reducerKey))
-
+//
 // TODO: Define your UI initial state. Do not export this if you define a selectors object.
+// Simpler-redux builds a mapStateToProps from this object below.
+// Therefore, every key defined in uiInitialState will automatically be in the props of 
+// the react component with their associated current state values.
+//
 export const uiInitialState = {
   // Example
   counter: 0
 }
 
-// TODO: Define your initial state. This is required.
+//
+// TODO: Define your initial state. This is required and will be the shape of your
+// state at the reducerKey.
+// This is the initial state for the generated reducer. 
+//
 export const initialState = {
   ...uiInitialState
 }
@@ -58,7 +59,30 @@ export const selectors = {
 }
 */
 
+//
+// reducerState is a proxy that wraps the simpler-redux store. This allows simple syntatic sugar
+// access to the redux state at the reducerKey.
+// For example, reducerState.isFetching translates to a redux store.getState()[reducerKey][isFetching].
+// reducerState.isFetching = true translates to a redux state transition at reduxState[reducerKey][isFetching]
+// setState(objectToMerge, [type])
+// getState(),keyInThisReducerState
+//
+let setState
+let getState
+let reducerState
+export const storeIsDefinedCallback = (store, stateAccessors) =>
+  ({ setState, getState, reducerState } = stateAccessors(store, reducerKey, initialState))
+
+
+//
 // TODO: Define your service functions for your UI using getState and setState to manage redux state.
+// This object is used to build a mapDispatchToProps function so every key below will
+// automatically be in the props of the react component and will be associated with the functions
+// defined below. Therefore based on the below, increment and decrement will be in the props.
+// Hence, onClick={props.increment} in the react component will cause the increment function
+// below to be called when the html element is clicked. The serviceFunctions definition is all you
+// need to do to make that happen.
+//
 export const serviceFunctions = {
   // Examples
   increment: () => setState({ counter: getState().counter + 1 }, 'increment'),
