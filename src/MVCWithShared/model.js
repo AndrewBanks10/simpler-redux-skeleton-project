@@ -13,4 +13,3 @@ export const selectors = {
 // Example: increment: store => store.setRState(reducerKey, {counter: store.getRState(reducerKey).counter + 1}, 'increment')
 export const serviceFunctions = {
 }
-
