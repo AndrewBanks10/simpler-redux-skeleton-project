@@ -16,6 +16,7 @@ if (module.hot) {
 }
 
 if (typeof store === 'undefined') {
+  // TODO: Wrap your redux store with registerSimplerRedux and export it from here as shown below.
   store = registerSimplerRedux(createStore(combineReducers(reducersObject)))
 }
 

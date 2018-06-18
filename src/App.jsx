@@ -5,6 +5,7 @@ import MVCNormal from './MVCNormal'
 import MVCWithShared from './MVCWithShared'
 
 const App = () =>
+  // TODO: Make sure you use the simplerReduxStore in the react-redux Provider.
   <Provider store={simplerReduxStore}>
     <div>
       <MVCNormal />
