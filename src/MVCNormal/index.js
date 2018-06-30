@@ -16,15 +16,15 @@ const App = () =>
 */
 export default connectWithStore({ uiComponent, ...modelDefinition })
 
+/*
+TODO:
+The below is only needed if you currently have your own code splitting logic. Given
+export const isDynamicReducer = true is in the model, simpler-redux automatically
+supports dynamic reducer loading.
+
+However, if you do use your own dynamic load of reducers then do your add reducer with the below.
+
 export const reducerKey = modelDefinition.reducerKey
 export const reducer = generalReducer(modelDefinition.reducerKey, modelDefinition.initialState)
-/*
-TODO: Add the generated reducer above to the global reducers object using reducerKey and reducer.
-A sample entry in the reducers object is shown below.
 
-import { reducerKey as mvcNormalReducerKey, reducer as mvcNormalReducer } from './MVCNormal'
-
-const reducersObject = {
-  [mvcNormalReducerKey]: mvcNormalReducer
-}
 */
