@@ -22,6 +22,8 @@ storeIsDefinedCallback(store, stateAccessors) - (Optional) If this is exported t
   let setState, reducerState
   export const storeIsDefinedCallback = (store, stateAccessors) =>
     ({setState, reducerState} = stateAccessors(store, reducerKey, initialState))
+  isDynamicReducer - (Optional) This supports dynamic reducer loading. For this, simpler-redux
+    automatically takes care of building the reducer and loading it into the reducers object.
 
 Note: If you present any redux state in the react component then you must define and export either
   a selectors object or an initialUIState object. Otherwise, you will not have any state in
