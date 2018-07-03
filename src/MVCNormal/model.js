@@ -8,7 +8,7 @@ initialUIState - (optional) If this is exported then simpler-redux will build a 
   function based on the keys in this object.
 selectors - (optional) If this is exported then simpler-redux will build a mapStateToProps
   function based on the selectors object.
-serviceFunctions - (optional) If this is exported then simpler-redux will be a mapDispatchToProps
+serviceFunctions - (optional) If this is exported then simpler-redux will build a mapDispatchToProps
   function based on the keys in this object. These will be the service functions exposed to the
   the react component in the props.
 noStoreParameterOnServiceFunctions = true (Optional) - By default, simpler-redux injects the store as the
@@ -22,7 +22,7 @@ storeIsDefinedCallback(store, stateAccessors) - (Optional) If this is exported t
   let setState, reducerState
   export const storeIsDefinedCallback = (store, stateAccessors) =>
     ({setState, reducerState} = stateAccessors(store, reducerKey, initialState))
-  isDynamicReducer - (Optional) This supports dynamic reducer loading. For this, simpler-redux
+isDynamicReducer - (Optional) This supports dynamic reducer loading. For this, simpler-redux
     automatically takes care of building the reducer and loading it into the reducers object.
 
 Note: If you present any redux state in the react component then you must define and export either
