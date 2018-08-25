@@ -89,9 +89,3 @@ export const serviceFunctions = {
   increment: () => setState({ counter: getState().counter + 1 }, 'increment'),
   decrement: () => reducerState.counter--
 }
-
-// This supports dynamic reducer loading. With this, simpler-redux automatically
-// builds the reducer and loads it when the react component is constructed. So,
-// You do not have to load the reducer into the global reducer object. If you have your
-// own code splitting logic then do not use this. 
-export const isDynamicReducer = true
